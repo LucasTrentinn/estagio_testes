@@ -1,6 +1,7 @@
-import { NextPage } from "next";
+import {  NextPage } from "next";
 
 const Product: NextPage = () => {
+  
   return (
     <div> oi </div>
   )

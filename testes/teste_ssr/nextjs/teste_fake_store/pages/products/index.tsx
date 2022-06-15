@@ -1,14 +1,9 @@
-import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { useContext, useEffect } from "react";
-import { Context } from "../../context/ProductsContext";
+
 
 const Home: NextPage = () => {
-  const { products, listAllProducts } = useContext(Context);
-
-  useEffect(() => {
-    listAllProducts();
-  }, []);
 
   return (
     <div className="bg-white">
@@ -20,7 +15,7 @@ const Home: NextPage = () => {
             <Link href={`/products/${product.id}`} key={product.id}>
               <a className="group">
                 <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-                  <img src={product.image} alt="" className="w-full h-full object-center group-hover:opacity-75" />
+                  <Image src={product.image} alt="" className="w-full h-full object-center group-hover:opacity-75" />
                 </div>
                 <h3 className="mt-4 text-sm text-gray-700">{product.title}</h3>
                 <p className="mt-1 text-lg font-medium text-gray-900">R${(product.price).toFixed(2).replace('.', ',')}</p>
